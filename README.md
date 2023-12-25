@@ -79,3 +79,37 @@
 7. Generating HTML:
   A prompt for generating HTML code for a simple school project website is defined.
   The generate_html_code function is called with this prompt to generate HTML.
+
+#### User_Interface.ipynb
+
+##### This file uses various commands and Python code to run a web application using Chainlit and expose it publicly using ngrok which basically functions as an API
+
+1. Starting Chainlit App:
+  !chainlit run /content/**app.py**: This command starts a Chainlit application located at /content/**app.py**. Chainlit is a tool for running Python apps, similar to Streamlit.
+  The process is run in the background (&) and any output is redirected to /content/logs.txt.
+2. Ngrok Setup:
+  !ngrok config add-authtoken <token>: This command configures ngrok with an authentication token(You need to generate your own token by going on https://dashboard.ngrok.com/get-started/your-authtoken).
+  Ngrok is a tool that creates secure tunnels to localhost, allowing you to expose your local server to the internet.
+4. Creating Ngrok Tunnel:
+  ngrok.connect(8000): Establishes an ngrok tunnel to the local server running on port 8000. This makes the locally running Chainlit app accessible over the internet.
+  The public URL of the ngrok tunnel is printed, allowing access to the Chainlit app from anywhere.
+5. Getting Current Tunnels:
+  ngrok.get_tunnels(): Retrieves information about the active ngrok tunnels.
+6. Closing Ngrok:
+  ngrok.kill(): Terminates all active ngrok tunnels.
+
+#### app.py
+
+##### This file sets up an interactive chat application using Chainlit (a chat-based interface for Python applications) to generate HTML code with a pre-trained language model
+
+1. Initialization:
+  Loads a pre-trained language model (TinyPixel/CodeLlama-7B-Instruct-bf16-sharded) and an adapter (MG650/CodeLlama_HTML_FineTuned) with specific quantization settings for efficiency.
+  The model and tokenizer are stored in the user session for later use.
+2. Chat Interface Setup:
+  Sets up a chat title and icon for the Chainlit interface.
+3. HTML Code Generation:
+  Defines a function that activates on receiving a message.
+  The function uses the stored model and tokenizer to generate HTML code based on the user's input.
+  The generated HTML code is sent back to the user in the chat interface.
+4. Execution:
+  The script is designed to run as a main program and provide an interactive HTML code generation service through a chat interface.
