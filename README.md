@@ -4,6 +4,8 @@
 
 ### Files and their uses
 
+#### Challenges faced and their solutions are written in the pdf file
+
 #### Data_loading_and_Fine_tuning.ipynb
 
 ##### This file deals with HTML dataset preparation and finetuning the sharded and 4- bit quantized CodeLlama 7-B model using native PyTorch training loop followed by saving the model
