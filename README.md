@@ -2,7 +2,7 @@
 ### This is the fineTuned model hosted on Hugging Face Hub
 #### https://huggingface.co/MG650/CodeLlama_HTML_FineTuned
 
-### Files and theie uses
+### Files and their uses
 
 #### Data_Loading and FineTuning.ipynb
 1. Import the necessary libraries
@@ -51,7 +51,8 @@
 17. Training using native Pytorch
   The tensor pairs are also converted to cuda to match the model's environment using to.(device) argument
   Backpropagation technique with negative gradient is being used
-18. Model Evaluation:
+
+19. Model Evaluation:
   Iterates over the evaluation dataset without computing gradients (to save memory and compute resources).
-19. Saving the finetuned model:
+20. Saving the finetuned model:
   Saved all the model files in a folder and zipped it to download and upload in hugging Face Hub
